@@ -1,0 +1,51 @@
+.instruction-inner-box {
+  box-shadow: var(--box-shadow);
+  padding: 3rem;
+  margin: 2rem auto;
+  max-width: 90rem;
+}
+
+.instruction-title {
+  text-align: center;
+  margin: 3rem;
+  margin-bottom: 0;
+  font-weight: bolder;
+}
+
+.rules-instruction:last-child {
+  margin-bottom: 0;
+}
+
+.unit-rule {
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.star-icon {
+  color: var(--star-hover-color);
+  font-size: 2.8rem;
+}
+
+.quiz-btn {
+  margin-top: 3.5rem;
+}
+
+.underline-header {
+  width: 9rem;
+  height: 3px;
+  background-color: var(--primary-color);
+  margin: auto;
+  margin-bottom: 5rem;
+}
+
+.instruction-header {
+  text-align: center;
+  margin: 0 0 3rem ;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 700px) {
+  .instruction-inner-box {
+    margin: 3rem;
+  }
+}
