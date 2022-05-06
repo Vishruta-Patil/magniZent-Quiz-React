@@ -1,0 +1,21 @@
+.result-header {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.result-underline {
+    width: 4rem;
+}
+
+.final-score {
+    margin-top: 1rem
+}
+
+.gutter-quiz {
+    margin-bottom: 2rem;
+}
+
+.quiz-container{
+    max-width: 90rem;
+    margin-bottom: 7rem;
+}
