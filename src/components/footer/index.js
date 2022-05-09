@@ -1,0 +1,29 @@
+import footerSocialLinksData from "../../data/footerSocialLinksData"
+import "./index.css"
+
+export const Footer = () => {
+  return (
+    <div>
+      <div className="cart-footer flex-center flex-column">
+
+        <p className="footer-content">Made with <span className="primary-color footer-symbol"> &lt;/&gt; </span> by <a
+          className="footer-linkedin-link" href="http://www.linkedin.com/in/vishruta-patil-30106b204">Vishruta Patil</a></p>
+
+        <div className="social-links-container">
+          <ul className="flex social-links-inner-container">
+            {
+              footerSocialLinksData.map((item, index) => (
+                <li key={index}>
+                  <a href={item.social_link} target="_blank"><i
+                    class={`fab footer-social-icon ${item.class_name}`}></i></a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <p className="copywrite-footer">© 2022 || magniZent</p>
+
+      </div>
+    </div>
+  )
+}

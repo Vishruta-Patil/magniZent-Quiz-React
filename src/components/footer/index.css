@@ -1,0 +1,40 @@
+.cart-footer {
+    margin-top: 7rem;
+    background-color: var(--footer-bg-color);
+    color: var(--black-color);
+    padding: 5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  
+  .footer-social-icon {
+    color: var(--secondary-color);
+    font-size: 3rem;
+    margin-top: 1.5rem;
+  }
+  
+  .footer-social-icon:hover {
+    color: var(--primary-color);
+  }
+  
+  .footer-linkedin-link {
+    color: var(--black-color);
+    cursor: pointer;
+  }
+  
+  .footer-symbol {
+    font-weight: bolder;
+    color: var(--primary-color);
+  }
+  
+  .copywrite-footer {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    font-weight: 500;
+    color: var(--black-color)
+  }
+  
+  .footer-content {
+    text-align: center;
+  }
