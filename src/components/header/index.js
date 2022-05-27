@@ -11,7 +11,7 @@ const Header = () => {
 
                         <Link to="/" className="primary-color" >
                             <h2 className="main-title">
-                                magni<span className="bold-main-title">Z</span>ent
+                                magni<span className="secondary-color bold-main-title">Z</span>ent
                             </h2>
                         </Link>
 
@@ -19,7 +19,7 @@ const Header = () => {
 
                     <div className="header-main-content">
                         <div className="flex header-inner-container">
-                        <Link to="/"  className="secondary-color" >
+                        <Link to="/" className="secondary-color" >
                                 <p className="header-item">Home</p>
                             </Link>
                             <p href="#">

@@ -93,23 +93,23 @@ list-style-type: none;
 }
 
 .font-lg {
-  font-size: 4rem;
+  font-size: 4.5rem;
 }
 
 .font-header {
-  font-size: 3.6rem;
+  font-size: 3.8rem;
 }
 
 .font-md {
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 
 .font-sm {
-  font-size: 2rem
+  font-size: 2.5rem
 }
 
 .font-xs {
-  font-size: 1.6rem
+  font-size: 1.8rem
 }
 
 .underline-header {

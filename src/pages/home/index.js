@@ -3,9 +3,18 @@ import { categoryData } from "../../data/categoryData"
 import { CategoryCard } from "../../components/CategoryCard"
 import "./home.css"
 import MainTitle from "../../components/common/mainTitle"
+import { useEffect } from "react"
+import { useQuiz } from "../../context/quizContext"
+import { RESET_DATA } from "../../reducer/constant"
 
 
 const Home = () => {
+    const {quizState, quizDispatch} = useQuiz()
+    
+    useEffect(() => {
+        quizDispatch({type: RESET_DATA})
+    }, quizState)
+
     return (
         <div class="container">
             <div class="hero-container">
@@ -16,12 +25,12 @@ const Home = () => {
                             Hello and Welcome to magniZent Quiz.
                         </div>
                         <div class="inner-header-content flex-column">
-                            <p class="font-md sub-title">
+                            <p class="font-sm sub-title">
                                 Want to test your Knowledge? You have landed perfect place!
                             </p>
-                            <p class="font-md">magniZent has 3 variants in the quiz</p>
+                            <p class="font-sm">magniZent has 3 variants in the quiz</p>
                             <a href="#categories-container"
-                            ><button class="hero-btn">Explore Quizzes</button></a
+                            ><button class="hero-btn">Explore Quizzes Now</button></a
                             >
                         </div>
                     </div>

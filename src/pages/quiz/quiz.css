@@ -37,6 +37,10 @@
   font-weight: bold;
 }
 
+.option-unit.active {
+  background-color: green;
+}
+
 .category-header {
   margin-top: 7rem;
   text-align: center;
@@ -61,6 +65,7 @@
   justify-content: space-between;
   margin-top: 5rem;
   font-weight: bolder;
+  cursor: pointer;
 }
 
 /* .highlight-letter {
