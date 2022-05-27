@@ -10,12 +10,15 @@ export const QuizCard = ({ item }) => {
 
   const [activeOption, setActiveOption] = useState(false)
 
-  const answerHandler = (option, index) => {
+  const answerHandler = (option, index, e) => { 
+    e.target.style.color = "red" 
     if(index === item.options.indexOf(option)) {
+      setActiveOption(true)
       console.log("yess")
-      setActiveOption
+      answerHandler(option, index)
     }
     else {
+      setActiveOption(false)
       console.log("no")
     }
     
@@ -57,9 +60,10 @@ export const QuizCard = ({ item }) => {
       <div className="quiz-option font-sm" >
         {item.options.map((option, index) => (
           <div
-            className={activeOption ? "option-unit flex active" : "option-unit flex"}
+            className={activeOption ? "option-unit active flex" : "option-unit flex"}
             key={index}
-            onClick={() => answerHandler(option, index)}
+            // onClick={(e) => { e.target.style.color = "#0097a7"; answerHandler(option, index)}}
+            onClick={() => {answerHandler(option, index)}}
           >
             <span className="material-icons icon"> check </span>
             <p>{option}</p>

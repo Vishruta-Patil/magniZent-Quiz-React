@@ -23,7 +23,8 @@
   text-decoration: underline;
 } */
 
-.option-unit {
+
+.option-unit, .result-option-unit {
   background-color: #EAEAEC;
   color: black;
   padding: 1.3rem;
@@ -37,8 +38,13 @@
   font-weight: bold;
 }
 
-.option-unit.active {
-  background-color: green;
+.option-unit.active, .result-option-unit.active {
+  background-color: var(--primary-color);
+}
+
+.option-unit:hover {
+  background-color: var(--primary-color);
+  border-bottom: 3px solid #EAEAEC;
 }
 
 .category-header {
