@@ -23,7 +23,8 @@
   text-decoration: underline;
 } */
 
-.option-unit {
+
+.option-unit, .result-option-unit {
   background-color: #EAEAEC;
   color: black;
   padding: 1.3rem;
@@ -35,6 +36,15 @@
   cursor: pointer;
   border-bottom: 3px solid var(--primary-color);
   font-weight: bold;
+}
+
+.option-unit.active, .result-option-unit.active {
+  background-color: var(--primary-color);
+}
+
+.option-unit:hover {
+  background-color: var(--primary-color);
+  border-bottom: 3px solid #EAEAEC;
 }
 
 .category-header {
@@ -61,6 +71,7 @@
   justify-content: space-between;
   margin-top: 5rem;
   font-weight: bolder;
+  cursor: pointer;
 }
 
 /* .highlight-letter {

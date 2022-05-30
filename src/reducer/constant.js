@@ -1,0 +1,4 @@
+export const GET_CATEGORY = "GET_CATEGORY"
+export const SET_QUESTION_NUMBER = "SET_QUESTION_NUMBER"
+export const RESET_DATA = "RESET_DATA"
+export const GET_RESULT = "GET_RESULT"

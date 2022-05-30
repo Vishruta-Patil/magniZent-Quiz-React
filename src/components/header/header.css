@@ -2,7 +2,7 @@
   color: var(--primary-color);
   display: flex;
   align-items: center;
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
 }
 
 .header-container {
@@ -17,8 +17,7 @@
 }
 
 .bold-main-title {
-  color: rgba(0, 0, 0, 0.6);
-  font-size: 5rem;
+  font-size: 5.5rem;
 }
 
 .header-inner-container>li {
@@ -41,7 +40,7 @@
 }
 
 .header-item {
-  font-size: 2rem;
+  font-size: 2.2rem;
 }
 
 .header-item:hover {
