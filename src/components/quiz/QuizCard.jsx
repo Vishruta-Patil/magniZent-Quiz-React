@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuiz } from "../../context/quizContext";
-import { GET_RESULT, SET_QUESTION_NUMBER } from "../../reducer/constant";
+import { GET_RESULT, SET_QUESTION_NUMBER, SET_ANSWER_LIST } from "../../reducer/constant";
 
 export const QuizCard = ({ item }) => {
   const navigate = useNavigate();
@@ -10,18 +10,27 @@ export const QuizCard = ({ item }) => {
 
   const [activeOption, setActiveOption] = useState(false)
 
-  const answerHandler = (option, index, e) => { 
-    e.target.style.color = "red" 
-    if(index === item.options.indexOf(option)) {
-      setActiveOption(true)
-      console.log("yess")
-      answerHandler(option, index)
-    }
-    else {
-      setActiveOption(false)
-      console.log("no")
-    }
+  // const answerHandler = (option, index, e) => { 
+  //   e.target.style.color = "red" 
+  //   if(index === item.options.indexOf(option)) {
+  //     setActiveOption(true)
+  //     console.log("yess")
+  //     answerHandler(option, index)
+  //   }
+  //   else {
+  //     setActiveOption(false)
+  //     console.log("no")
+  //   }
     
+  //   if (item.ans === option) {
+  //     quizDispatch({type:GET_RESULT, payload: result + 1})
+  //   } else {
+  //     quizDispatch({type:GET_RESULT, payload: result})
+  //   }
+  // };
+
+  const answerHandler = (option) => {  
+    quizDispatch({type: SET_ANSWER_LIST, payload: option}) 
     if (item.ans === option) {
       quizDispatch({type:GET_RESULT, payload: result + 1})
     } else {
@@ -63,7 +72,7 @@ export const QuizCard = ({ item }) => {
             className={activeOption ? "option-unit active flex" : "option-unit flex"}
             key={index}
             // onClick={(e) => { e.target.style.color = "#0097a7"; answerHandler(option, index)}}
-            onClick={() => {answerHandler(option, index)}}
+            onClick={() => answerHandler(option)}
           >
             <span className="material-icons icon"> check </span>
             <p>{option}</p>

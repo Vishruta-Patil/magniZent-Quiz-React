@@ -42,6 +42,18 @@
   background-color: var(--primary-color);
 }
 
+.result-option-unit.active {
+  background-color: green;
+  color: var(--white-color);
+  font-weight: 400;
+}
+
+.result-option-unit.wrong-option {
+  background-color: var(--danger-color);
+  color: var(--white-color);
+  font-weight: 400;
+}
+
 .option-unit:hover {
   background-color: var(--primary-color);
   border-bottom: 3px solid #EAEAEC;

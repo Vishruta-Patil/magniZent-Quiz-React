@@ -1,4 +1,4 @@
-import { GET_CATEGORY, SET_QUESTION_NUMBER, RESET_DATA, GET_RESULT } from "./constant"
+import { GET_CATEGORY, SET_QUESTION_NUMBER, RESET_DATA, GET_RESULT, SET_ANSWER_LIST } from "./constant"
 
 export const quizReducer = (state, action) => {
     switch (action.type) {
@@ -18,11 +18,17 @@ export const quizReducer = (state, action) => {
                 category: "technology",
                 questionNo: 1,
                 result: 0,
+                answerList: []
             }
         case GET_RESULT:
             return {
                 ...state,
                 result: action.payload
+            }
+        case SET_ANSWER_LIST:
+            return {
+              ...state,
+              answerList: [...state.answerList, action.payload]  
             }
     }
 }

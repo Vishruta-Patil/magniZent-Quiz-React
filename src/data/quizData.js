@@ -5,7 +5,7 @@ export const quizData = {
             question_no: 1,
             question: "This is technology question no 1",
             options: ["option 1a", "option 1b", "option 1c", "option 1d"],
-            ans: "option 1b",
+            ans: "option 1a",
             category: "technology",
             link: {
                 prev: "rules",
@@ -17,7 +17,7 @@ export const quizData = {
             question_no: 2,
             question: "This is technology question no 2",
             options: ["option 2a", "option 2b", "option 2c", "option 2d"],
-            ans: "option 2c",
+            ans: "option 2b",
             category: "technology",
             link: {
                 prev: "question 1",
@@ -41,7 +41,7 @@ export const quizData = {
             question_no: 4,
             question: "This is technology question no 4",
             options: ["option 4a", "option 4b", "option 4c", "option 4d"],
-            ans: "option 4c",
+            ans: "option 4d",
             category: "technology",
             link: {
                 prev: "question 3",
