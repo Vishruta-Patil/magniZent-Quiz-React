@@ -2,7 +2,6 @@ import "./quiz.css";
 import { quizData } from "../../data/quizData";
 import { QuizCard } from "../../components/quiz/QuizCard";
 import { useQuiz } from "../../context/quizContext";
-import { useParams } from "react-router-dom";
 
 export const Quiz = () => {
     const {quizState} = useQuiz()
