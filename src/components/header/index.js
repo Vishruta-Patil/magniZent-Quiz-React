@@ -1,8 +1,22 @@
 import "./header.css"
 import "./collapseNavbar.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { signOut } from "firebase/auth"
+import { auth } from "../../firebase-config"
 
 const Header = () => {
+    const navigate = useNavigate();
+
+    const logout = async() => {
+        try {
+        const user = await signOut(auth)
+        sessionStorage.removeItem("auth_Token")
+        navigate("/")
+        } catch(error) {
+            console.log(error)
+        }
+    }
+
     return (
         <div className="container">
             <div className="header-container">
@@ -30,12 +44,14 @@ const Header = () => {
 
                     <div className="flex icon-container">
                         <div className="icon-unit">
-                            <p className="flex-column flex-center secondary-color header-icon" >
-                                <span className="material-icons icon"> account_circle </span>
+                            <p className="flex-column flex-center secondary-color header-icon"  onClick={logout}>
+                                <span className="material-icons icon"> login </span> 
 
                             </p>
                         </div>
-                        <div className="icon-unit">
+
+                        {/* ****Future Reference****** */}
+                        {/* <div className="icon-unit">
                             <p className="flex-column flex-center secondary-color header-icon" >
                                 <span className="material-icons icon"> equalizer </span>
 
@@ -46,7 +62,8 @@ const Header = () => {
                                 <span className="material-icons icon"> dark_mode </span>
 
                             </p>
-                        </div>
+                        </div> */}
+
                     </div>
                     <span className="material-icons icon hide-menu menu-logo"> menu </span>
                 </div>
