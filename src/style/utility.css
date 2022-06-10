@@ -49,7 +49,8 @@ button {
 .hero-btn {
   background-color: var(--primary-color);
   color: var(--white-color);
-  font-weight: bold;
+  font-weight: 500;
+  padding: 1rem 3.5rem;
 }
 
 .outline-btn:hover,

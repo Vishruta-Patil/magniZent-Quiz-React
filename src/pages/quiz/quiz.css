@@ -11,24 +11,26 @@
 
 .quiz-question {
   margin-top: 3rem;
-  /* font-weight: 500; */
 }
 
 .quiz-option {
   text-align: center;
+  margin-right: 1rem;
 }
 
-/* .quit-option {
-  margin-top: 5px;
-  text-decoration: underline;
-} */
+.time-icon {
+  margin-right: 5px;
+}
+
+.quit-option.active {
+  color: var(--danger-color)
+}
 
 
 .option-unit, .result-option-unit {
   background-color: #EAEAEC;
   color: black;
   padding: 1.3rem;
-  /* max-width: 40rem; */
   margin: 2rem auto;
   border-radius: 5px;
   color: black;
@@ -40,6 +42,18 @@
 
 .option-unit.active, .result-option-unit.active {
   background-color: var(--primary-color);
+}
+
+.result-option-unit.active {
+  background-color: green;
+  color: var(--white-color);
+  font-weight: 400;
+}
+
+.result-option-unit.wrong-option {
+  background-color: var(--danger-color);
+  color: var(--white-color);
+  font-weight: 400;
 }
 
 .option-unit:hover {
@@ -74,10 +88,9 @@
   cursor: pointer;
 }
 
-/* .highlight-letter {
-  color: var(--primary-color);
-  fo
-} */
+.highlight-text {
+  background-color: var(--danger-color);
+}
 
 @media only screen and (max-width: 700px) {
   .quiz-container {

@@ -10,6 +10,7 @@ const QuizProvider = ({ children }) => {
         category: "technology",
         questionNo: 1,
         result: 0,
+        answerList: [],
     }
     const [quizState, quizDispatch] = useReducer(quizReducer, initialState)
 
