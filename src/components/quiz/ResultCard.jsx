@@ -23,9 +23,7 @@ export const ResultCard = ({ item }) => {
       return "wrong-option";
     }
   };
-
-  //  useEffect(() => getResultBgColor(), [])
-
+  
   return (
     <div className="quiz-container">
       <div className="quiz-header flex font-md justify-between secondary-color">

@@ -1,4 +1,4 @@
-import { GET_CATEGORY, SET_QUESTION_NUMBER, RESET_DATA, GET_RESULT, SET_ANSWER_LIST } from "./constant"
+import { GET_CATEGORY, SET_QUESTION_NUMBER, RESET_DATA, GET_RESULT, SET_ANSWER_LIST, RESET_CATEGORY_GAME } from "./constant"
 
 export const quizReducer = (state, action) => {
     switch (action.type) {
@@ -20,6 +20,13 @@ export const quizReducer = (state, action) => {
                 result: 0,
                 answerList: []
             }
+        case RESET_CATEGORY_GAME:
+            return {
+                ...state,
+                questionNo: 1,
+                result: 0,
+                answerList: []
+            }
         case GET_RESULT:
             return {
                 ...state,
@@ -32,3 +39,11 @@ export const quizReducer = (state, action) => {
             }
     }
 }
+
+/*
+answerList : [{q_id: 1, selected_opt: [{ind: 1, value: "abc"}]}] 
+
+ansObj: {[q_id]:{
+    selected_opt: [{ind: 1, value: "abc"}]}]
+}}
+*/
