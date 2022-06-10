@@ -37,6 +37,10 @@ export const quizReducer = (state, action) => {
               ...state,
               answerList: [...state.answerList, action.payload]  
             }
+        default:
+            return {
+                ...state
+            }
     }
 }
 

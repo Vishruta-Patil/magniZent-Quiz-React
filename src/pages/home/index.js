@@ -9,11 +9,13 @@ import { RESET_DATA } from "../../reducer/constant"
 
 
 const Home = () => {
-    const {quizState, quizDispatch} = useQuiz()
+    const {quizDispatch} = useQuiz()
     
     useEffect(() => {
         quizDispatch({type: RESET_DATA})
-    }, quizState)
+    }, [])
+
+    // doubt => dependency arr and [quizState]
 
     return (
         <div class="container">
