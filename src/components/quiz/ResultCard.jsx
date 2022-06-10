@@ -1,18 +1,11 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { useQuiz } from "../../context/quizContext";
-import { GET_RESULT, SET_QUESTION_NUMBER } from "../../reducer/constant";
 
 export const ResultCard = ({ item }) => {
-  const navigate = useNavigate();
-  const { quizState, quizDispatch } = useQuiz();
-  const { category, questionNo, result, answerList } = quizState;
-
-  const [activeOption, setActiveOption] = useState(false);
+  const { quizState } = useQuiz();
+  const { answerList } = quizState;
 
   const [bgColor, setBgColor] = useState("result-option-unit flex");
-
-  console.log(answerList);
 
   const getResultBgColor = (option) => {
     if (option === item.ans) {

@@ -10,38 +10,13 @@ import {
 export const QuizCard = ({ item }) => {
   const navigate = useNavigate();
   const { quizState, quizDispatch } = useQuiz();
-  const { category, questionNo, result, answerList } = quizState;
+  const { questionNo, result } = quizState;
 
-  const [activeOption, setActiveOption] = useState(false);
-
-  // const answerHandler = (option, index, e) => {
-  //   e.target.style.color = "red"
-  //   if(index === item.options.indexOf(option)) {
-  //     setActiveOption(true)
-  //     console.log("yess")
-  //     answerHandler(option, index)
-  //   }
-  //   else {
-  //     setActiveOption(false)
-  //     console.log("no")
-  //   }
-
-  //   if (item.ans === option) {
-  //     quizDispatch({type:GET_RESULT, payload: result + 1})
-  //   } else {
-  //     quizDispatch({type:GET_RESULT, payload: result})
-  //   }
-  // };
-
-  
 
   const [timer, setTimer] = useState(30);
   // const [timerId, setTimerId] = useState("");
-
   // const timer1 = useRef(3);
   const timer2 = useRef(null);
-
-  console.log( timer);
 
   useEffect(() => {
     timer2.current = setInterval(() => {
@@ -52,13 +27,13 @@ export const QuizCard = ({ item }) => {
   }, [timer]);
 
   useEffect(() => {
-    console.log("vishruta " + timer);
     if (timer <= 0) {
       clearInterval(timer2.current);
     }
   });
 
 
+  // *****Another approach to do same*****
   // const [remaining, setRemaining] = useState(
   //   3
   // );
@@ -101,8 +76,8 @@ export const QuizCard = ({ item }) => {
   };
 
   const answerHandler = (e, option) => {
-    // e.target.style.color = e.target.style.color === "red" ? "black" : "red";
-
+    // ***ToDo***
+    // e.target.style.color = e.target.style.color === "red" ? "black" : "red"; 
     quizDispatch({ type: SET_ANSWER_LIST, payload: option });
     if (item.ans === option) {
       quizDispatch({ type: GET_RESULT, payload: result + 10 });
@@ -138,11 +113,9 @@ export const QuizCard = ({ item }) => {
           <div
             className={"option-unit flex"}
             key={index}
-            // onClick={(e) => { e.target.style.color = "#0097a7"; answerHandler(option, index)}}
             onClick={(e) => answerHandler(e, option)}
             disabled={true}
           >
-            {console.log("index ", index, " question no: ", item.question_no)}
             <span className="material-icons icon"> check </span>
             {option}
           </div>
@@ -150,14 +123,6 @@ export const QuizCard = ({ item }) => {
       </div>
 
       <div className="quiz-footer font-sm secondary-color">
-        {/* <p onClick={() => prevLinkHandler(item.link.prev)}>
-          <span className="black-color">&lt; </span>
-          <span className="primary-color font-md">
-            {item.link.prev[0].toUpperCase()}
-          </span>
-          {item.link.prev.slice(1)}
-        </p> */}
-
         <p onClick={() => navigate("/")}>
           <span className="primary-color font-md">
             Q

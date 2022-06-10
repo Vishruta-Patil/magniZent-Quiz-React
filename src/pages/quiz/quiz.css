@@ -26,17 +26,11 @@
   color: var(--danger-color)
 }
 
-/* .quit-option {
-  margin-top: 5px;
-  text-decoration: underline;
-} */
-
 
 .option-unit, .result-option-unit {
   background-color: #EAEAEC;
   color: black;
   padding: 1.3rem;
-  /* max-width: 40rem; */
   margin: 2rem auto;
   border-radius: 5px;
   color: black;
@@ -93,11 +87,6 @@
   font-weight: bolder;
   cursor: pointer;
 }
-
-/* .highlight-letter {
-  color: var(--primary-color);
-  fo
-} */
 
 .highlight-text {
   background-color: var(--danger-color);

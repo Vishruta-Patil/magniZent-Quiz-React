@@ -40,6 +40,8 @@ export const quizReducer = (state, action) => {
     }
 }
 
+
+// ***Future reference***
 /*
 answerList : [{q_id: 1, selected_opt: [{ind: 1, value: "abc"}]}] 
 
