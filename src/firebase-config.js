@@ -2,8 +2,8 @@ import { initializeApp } from "firebase/app";
 import {getAuth} from "firebase/auth"
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBq92ec_feiK9S11YpB8_mz5MIi5v_t7Gc",
-    authDomain: "magnizent-quiz.firebaseapp.com",
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
     projectId: "magnizent-quiz",
     storageBucket: "magnizent-quiz.appspot.com",
     messagingSenderId: "989622307537",
