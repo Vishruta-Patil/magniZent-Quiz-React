@@ -127,7 +127,7 @@ export const quizData = {
         {
             id: 1,
             question_no: 1,
-            question: "he day on which the Sun’s direct rays cross the celestial equator is called:",
+            question: "The day on which the Sun’s direct rays cross the celestial equator is called:",
             options: ["the ecliptic", "the solstice", "the equinox", "the aphelion"],
             ans: "the equinox",
             category: "astronomy",

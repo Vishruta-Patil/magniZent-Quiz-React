@@ -19,10 +19,12 @@ export const Instructions = () => {
                 <InstructionUnit>There are total 5 questions</InstructionUnit>
                 <InstructionUnit>Each question is of 10 Points</InstructionUnit>
                 <InstructionUnit>Every question has only one correct answer</InstructionUnit>
+                <InstructionUnit>You get 30 seconds to answer each question</InstructionUnit>
+                <InstructionUnit>You cannot go back to the previous question.</InstructionUnit>
                 <InstructionUnit>You need to score more than 60% to win the quiz</InstructionUnit>
-                <InstructionUnit>You get 30 sec to answer each question</InstructionUnit>
+
                 <Link to= {`/quiz`}
-                ><button class="hero-btn quiz-btn" >Let's Begin  the Quiz </button></Link
+                ><button class="hero-btn quiz-btn" >Let's Begin the Quiz </button></Link
                 >
             </div>
         </div>
