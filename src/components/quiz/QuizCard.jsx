@@ -10,8 +10,9 @@ import {
 export const QuizCard = ({ item }) => {
   const navigate = useNavigate();
   const { quizState, quizDispatch } = useQuiz();
-  const { questionNo, result } = quizState;
+  const { questionNo, result, answerList } = quizState;
 
+  const [selectedAnswer, setSelectedAnswer] = useState("")
 
   const [timer, setTimer] = useState(30);
   // const [timerId, setTimerId] = useState("");
@@ -66,6 +67,7 @@ export const QuizCard = ({ item }) => {
   };
 
   const nextLinkHandler = (next) => {
+    setSelectedAnswer("")
     clearTimeout(timer2.current)
     if (next === "result") {
       navigate("/result");
@@ -75,9 +77,8 @@ export const QuizCard = ({ item }) => {
     }
   };
 
-  const answerHandler = (e, option) => {
-    // ***ToDo***
-    // e.target.style.color = e.target.style.color === "red" ? "black" : "red"; 
+  const answerHandler = (e, option) => { 
+    setSelectedAnswer(option)
     quizDispatch({ type: SET_ANSWER_LIST, payload: option });
     if (item.ans === option) {
       quizDispatch({ type: GET_RESULT, payload: result + 10 });
@@ -96,6 +97,8 @@ export const QuizCard = ({ item }) => {
     }
   }, [timer])
 
+  console.log(answerList)
+
   return (
     <div className="quiz-container">
       <div className="quiz-header flex font-md justify-between secondary-color">
@@ -111,7 +114,7 @@ export const QuizCard = ({ item }) => {
       <div className="quiz-option font-sm">
         {item.options.map((option, index) => (
           <div
-            className={"option-unit flex"}
+            className={selectedAnswer === option ? "option-unit active flex" : "option-unit flex"}
             key={index}
             onClick={(e) => answerHandler(e, option)}
             disabled={true}
