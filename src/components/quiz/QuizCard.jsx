@@ -57,17 +57,7 @@ export const QuizCard = ({ item }) => {
   //   setTimer(timer-1)
   // }, 1000))
 
-  const prevLinkHandler = (prev) => {
-    if (prev === "rules") {
-      navigate("/instructions");
-    } 
-    else {
-      quizDispatch({ type: SET_QUESTION_NUMBER, payload: questionNo - 1 });
-    }
-  };
-
   const nextLinkHandler = (next) => {
-
     quizDispatch({ type: SET_ANSWER_LIST, payload: selectedAnswer });
     if (item.ans === selectedAnswer) {
       quizDispatch({ type: GET_RESULT, payload: result + 10 });
@@ -85,10 +75,6 @@ export const QuizCard = ({ item }) => {
     }
   };
 
-  const answerHandler = (option) => { 
-    setSelectedAnswer(option) 
-  };
-
   useEffect(() => {
     if (timer===0 && questionNo >= 5) {
       navigate("/result");
@@ -99,7 +85,6 @@ export const QuizCard = ({ item }) => {
     }
   }, [timer])
 
-  console.log(answerList)
 
   return (
     <div className="quiz-container">
@@ -118,7 +103,7 @@ export const QuizCard = ({ item }) => {
           <div
             className={selectedAnswer === option ? "option-unit active flex" : "option-unit flex"}
             key={index}
-            onClick={() => answerHandler(option)}
+            onClick={() => setSelectedAnswer(option)}
             disabled={true}
           >
             <span className="material-icons icon"> check </span>
