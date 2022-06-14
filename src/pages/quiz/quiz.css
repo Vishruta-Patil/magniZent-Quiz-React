@@ -1,12 +1,20 @@
 .quiz-container {
   max-width: 75rem;
   margin: 4rem auto;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   padding: 3rem;
 }
 
 .quiz-header {
   font-weight: bolder;
+  position: relative;
+}
+
+.not-selected-option {
+  position: absolute;
+  right: 10px;
+  color: var(--danger-color);
 }
 
 .quiz-question {
@@ -23,12 +31,12 @@
 }
 
 .quit-option.active {
-  color: var(--danger-color)
+  color: var(--danger-color);
 }
 
-
-.option-unit, .result-option-unit {
-  background-color: #EAEAEC;
+.option-unit,
+.result-option-unit {
+  background-color: #eaeaec;
   color: black;
   padding: 1.3rem;
   margin: 2rem auto;
@@ -40,7 +48,8 @@
   font-weight: bold;
 }
 
-.option-unit.active, .result-option-unit.active {
+.option-unit.active,
+.result-option-unit.active {
   background-color: var(--primary-color);
 }
 
@@ -58,7 +67,7 @@
 
 .option-unit:hover {
   background-color: var(--primary-color);
-  border-bottom: 3px solid #EAEAEC;
+  border-bottom: 3px solid #eaeaec;
 }
 
 .category-header {
@@ -67,7 +76,7 @@
 }
 
 .icon {
-  color: var(--success-color)
+  color: var(--success-color);
 }
 
 .result-btn-container {
@@ -77,7 +86,7 @@
 }
 
 .result-btn {
-  padding: 1rem 6rem
+  padding: 1rem 6rem;
 }
 
 .quiz-footer {

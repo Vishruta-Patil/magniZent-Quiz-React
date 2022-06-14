@@ -16,14 +16,19 @@ export const ResultCard = ({ item }) => {
       return "wrong-option";
     }
   };
-  
+
   return (
     <div className="quiz-container">
       <div className="quiz-header flex font-md justify-between secondary-color">
-        <p>
-          <span className="primary-color font-header">Q</span>uestion:
-          <span>{item.question_no}/5</span>
-        </p>
+        <div className="flex">
+          <div>
+            <span className="primary-color font-header">Q</span>uestion:
+            <span>{item.question_no}/5</span>
+          </div>
+          {answerList[item.question_no - 1] === "" && (
+            <p className="not-selected-option font-sm">Option not selected</p>
+          )}
+        </div>
       </div>
       <div className="quiz-question font-md black-color">{item.question}</div>
       <div className="quiz-option font-sm">

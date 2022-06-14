@@ -10,8 +10,9 @@ import {
 export const QuizCard = ({ item }) => {
   const navigate = useNavigate();
   const { quizState, quizDispatch } = useQuiz();
-  const { questionNo, result } = quizState;
+  const { questionNo, result, answerList } = quizState;
 
+  const [selectedAnswer, setSelectedAnswer] = useState("")
 
   const [timer, setTimer] = useState(30);
   // const [timerId, setTimerId] = useState("");
@@ -56,33 +57,21 @@ export const QuizCard = ({ item }) => {
   //   setTimer(timer-1)
   // }, 1000))
 
-  const prevLinkHandler = (prev) => {
-    if (prev === "rules") {
-      navigate("/instructions");
-    } 
-    else {
-      quizDispatch({ type: SET_QUESTION_NUMBER, payload: questionNo - 1 });
-    }
-  };
-
   const nextLinkHandler = (next) => {
+    quizDispatch({ type: SET_ANSWER_LIST, payload: selectedAnswer });
+    if (item.ans === selectedAnswer) {
+      quizDispatch({ type: GET_RESULT, payload: result + 10 });
+    } else {
+      quizDispatch({ type: GET_RESULT, payload: result });
+    }
+
+    setSelectedAnswer("")
     clearTimeout(timer2.current)
     if (next === "result") {
       navigate("/result");
     } else if (questionNo < 5) {
       setTimer(30)
       quizDispatch({ type: SET_QUESTION_NUMBER, payload: questionNo + 1 });
-    }
-  };
-
-  const answerHandler = (e, option) => {
-    // ***ToDo***
-    // e.target.style.color = e.target.style.color === "red" ? "black" : "red"; 
-    quizDispatch({ type: SET_ANSWER_LIST, payload: option });
-    if (item.ans === option) {
-      quizDispatch({ type: GET_RESULT, payload: result + 10 });
-    } else {
-      quizDispatch({ type: GET_RESULT, payload: result });
     }
   };
 
@@ -95,6 +84,7 @@ export const QuizCard = ({ item }) => {
       quizDispatch({ type: SET_QUESTION_NUMBER, payload: questionNo + 1 });
     }
   }, [timer])
+
 
   return (
     <div className="quiz-container">
@@ -111,9 +101,9 @@ export const QuizCard = ({ item }) => {
       <div className="quiz-option font-sm">
         {item.options.map((option, index) => (
           <div
-            className={"option-unit flex"}
+            className={selectedAnswer === option ? "option-unit active flex" : "option-unit flex"}
             key={index}
-            onClick={(e) => answerHandler(e, option)}
+            onClick={() => setSelectedAnswer(option)}
             disabled={true}
           >
             <span className="material-icons icon"> check </span>

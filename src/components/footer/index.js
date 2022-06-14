@@ -1,7 +1,14 @@
+import { useEffect, useState } from "react"
 import footerSocialLinksData from "../../data/footerSocialLinksData"
 import "./index.css"
 
 export const Footer = () => {
+  const [currentYear, setCurrentYear] = useState("")
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear())
+  }, [])
+
   return (
     <div>
       <div className="cart-footer flex-center flex-column">
@@ -21,7 +28,7 @@ export const Footer = () => {
             }
           </ul>
         </div>
-        <p className="copywrite-footer">© 2022 || magniZent</p>
+        <p className="copywrite-footer">© {currentYear} || magniZent</p>
 
       </div>
     </div>

@@ -8,33 +8,19 @@ export const LogIn = () => {
   const [credentials, setCredentials] = useState({});
   let navigate = useNavigate();
 
-  const login = async () => {
+  const loginUser = async (email, password) => {
     try {
       const user = await signInWithEmailAndPassword(
         auth,
-        credentials.email,
-        credentials.password
+        email,
+        password
       );
       sessionStorage.setItem('auth_Token', user._tokenResponse.refreshToken)
       navigate('/')
     } catch (error) {
       console.log(error.message);
     }
-  };
-
-  const loginwithGuestCredentials = async () => {
-    try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        "test@123.com",
-        "test123"
-      );
-      sessionStorage.setItem('auth_Token', user._tokenResponse.refreshToken)
-      navigate('/')
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+  }
   
   return (
     <div className="login-container flex-column">
@@ -60,10 +46,10 @@ export const LogIn = () => {
         <label htmlFor="terms-input">I accept all the terms and conditions</label>
       </div>
 
-      <button className="hero-btn" onClick={login}>
+      <button className="hero-btn" onClick={() => loginUser(credentials.email, credentials.password)}>
         Login
       </button>
-      <button className="outline-btn" onClick={loginwithGuestCredentials}>
+      <button className="outline-btn" onClick={() => loginUser("test@123.com", "test123")}>
         Login With Guest Credentials
       </button>
       <p className="gen-msg">

@@ -9,7 +9,7 @@ const Header = () => {
 
     const logout = async() => {
         try {
-        const user = await signOut(auth)
+        await signOut(auth)
         sessionStorage.removeItem("auth_Token")
         navigate("/")
         } catch(error) {
