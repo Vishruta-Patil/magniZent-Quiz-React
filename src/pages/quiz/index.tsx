@@ -1,5 +1,5 @@
 import "./quiz.css";
-import { quizData } from "../../data/quizData";
+import { quizData } from "../../data/quizData/quizData";
 import { QuizCard } from "../../components/quiz/QuizCard";
 import { useQuiz } from "../../context/quizContext";
 
@@ -9,7 +9,7 @@ export const Quiz = () => {
     
   return (
     <div>
-        <QuizCard item={quizData[category][questionNo-1]} />
+        <QuizCard item={(quizData as any)[category][questionNo-1]} />
     </div>
   );
 };

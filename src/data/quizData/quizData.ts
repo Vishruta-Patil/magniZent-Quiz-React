@@ -1,4 +1,6 @@
-export const quizData = {
+import { QuizDataType } from "./quizData.types"
+
+export const quizData : QuizDataType = {
     technology: [
         {
             id: 1,

@@ -5,20 +5,20 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase-config";
 
 export const LogIn = () => {
-  const [credentials, setCredentials] = useState({});
+  const [credentials, setCredentials] = useState({email:"", password:""});
   let navigate = useNavigate();
 
-  const loginUser = async (email, password) => {
+  const loginUser = async (email:string, password:string) => {
     try {
       const user = await signInWithEmailAndPassword(
         auth,
         email,
         password
       );
-      sessionStorage.setItem('auth_Token', user._tokenResponse.refreshToken)
+      sessionStorage.setItem('auth_Token', (user as any)._tokenResponse.refreshToken)
       navigate('/')
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   }
   

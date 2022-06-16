@@ -1,9 +1,11 @@
+import { CategoryInterface } from "data/categoryData";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ResultCard } from "../../components/quiz/ResultCard";
 import { useQuiz } from "../../context/quizContext";
-import { quizData } from "../../data/quizData";
-import { RESET_DATA, RESET_CATEGORY_GAME } from "../../reducer/constant";
+import { quizData } from "../../data/quizData/quizData";
+import { RESET_CATEGORY_GAME } from "../../reducer/constant";
+import { Question, QuizDataType } from "data/quizData/quizData.types";
 
 export const Result = () => {
   const { quizState, quizDispatch } = useQuiz();
@@ -40,7 +42,7 @@ export const Result = () => {
         <button className="btn hero-btn" onClick={resetQuiz}>Play Again</button>
       </Link>
 
-      {quizData[category].map((item, index) => (
+      {(quizData as any)[category].map((item: CategoryInterface, index: number) => (  //doubt
         <ResultCard item={item} />
       ))}
     </div>

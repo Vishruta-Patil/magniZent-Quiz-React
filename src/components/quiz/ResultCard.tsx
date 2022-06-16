@@ -1,13 +1,14 @@
+import { Question } from "data/quizData/quizData.types";
 import { useState } from "react";
 import { useQuiz } from "../../context/quizContext";
 
-export const ResultCard = ({ item }) => {
+export const ResultCard = ({ item } : any) => {
   const { quizState } = useQuiz();
   const { answerList } = quizState;
 
   const [bgColor, setBgColor] = useState("result-option-unit flex");
 
-  const getResultBgColor = (option) => {
+  const getResultBgColor = (option : string) => {
     if (option === item.ans) {
       setBgColor("result-option-unit active flex");
       return "active";
@@ -32,7 +33,7 @@ export const ResultCard = ({ item }) => {
       </div>
       <div className="quiz-question font-md black-color">{item.question}</div>
       <div className="quiz-option font-sm">
-        {item.options.map((option, index) => (
+        {item.options.map((option:string, index:number) => (
           <div
             key={index}
             // *doubt* >>> className={`result-option-unit  ${() => getResultBgColor(option)} flex`}

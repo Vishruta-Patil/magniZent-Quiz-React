@@ -3,10 +3,11 @@ import footerSocialLinksData from "../../data/footerSocialLinksData"
 import "./index.css"
 
 export const Footer = () => {
-  const [currentYear, setCurrentYear] = useState("")
+  const [currentYear, setCurrentYear] = useState(0)
 
   useEffect(() => {
-    setCurrentYear(new Date().getFullYear())
+    const currentYear = new Date().getFullYear()
+    setCurrentYear(currentYear)
   }, [])
 
   return (
@@ -22,7 +23,7 @@ export const Footer = () => {
               footerSocialLinksData.map((item, index) => (
                 <li key={index}>
                   <a href={item.social_link} target="_blank"><i
-                    class={`fab footer-social-icon ${item.class_name}`}></i></a>
+                    className={`fab footer-social-icon ${item.class_name}`}></i></a>
                 </li>
               ))
             }

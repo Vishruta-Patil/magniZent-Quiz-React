@@ -36,7 +36,7 @@ const Header = () => {
                         <Link to="/" className="secondary-color" >
                                 <p className="header-item">Home</p>
                             </Link>
-                            <p href="#">
+                            <p>
                                 <p className="header-item primary-color">Dashboard</p>
                             </p>
                         </div>

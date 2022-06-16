@@ -19,10 +19,11 @@ export const SignIn = () => {
         credentials.email,
         credentials.password
       );
-      sessionStorage.setItem('auth_Token', user._tokenResponse.refreshToken)
+      console.log(typeof user)
+      sessionStorage.setItem('auth_Token', (user as any)._tokenResponse .refreshToken)
       navigate('/')
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   };
 

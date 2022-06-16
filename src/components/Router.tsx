@@ -18,7 +18,7 @@ export const Router = () => {
 
 //   const [authStatus, setAuthStatus] = useState(useAuth())
 
-  const PrivateRoute = ({ children }) => {
+  const PrivateRoute = ({ children } : any) => {
     const auth = useAuth();
     return auth ? children : <Navigate to="/login" />;
   };
