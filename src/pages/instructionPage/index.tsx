@@ -12,9 +12,9 @@ export const Instructions = () => {
     }, [])
 
     return (
-        <div class="instruction-container">
+        <div className="instruction-container">
            <MainTitle>Instructions</MainTitle>        
-            <div class="instruction-inner-box secondary-color">
+            <div className="instruction-inner-box secondary-color">
             <p className="font-md primary-color instruction-header">Read the instruction properly before starting the quiz</p>
                 <InstructionUnit>There are total 5 questions</InstructionUnit>
                 <InstructionUnit>Each question is of 10 Points</InstructionUnit>
@@ -24,7 +24,7 @@ export const Instructions = () => {
                 <InstructionUnit>You need to score more than 60% to win the quiz</InstructionUnit>
 
                 <Link to= {`/quiz`}
-                ><button class="hero-btn quiz-btn" >Let's Begin the Quiz </button></Link
+                ><button className="hero-btn quiz-btn" >Let's Begin the Quiz </button></Link
                 >
             </div>
         </div>

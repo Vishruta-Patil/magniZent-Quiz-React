@@ -1,6 +1,7 @@
 import { GET_CATEGORY, SET_QUESTION_NUMBER, RESET_DATA, GET_RESULT, SET_ANSWER_LIST, RESET_CATEGORY_GAME } from "./constant"
+import { QuizState, QuizAction } from "./quizReducer.types"
 
-export const quizReducer = (state, action) => {
+export const quizReducer = (state:QuizState, action:QuizAction) : QuizState => {
     switch (action.type) {
         case GET_CATEGORY:
             return {

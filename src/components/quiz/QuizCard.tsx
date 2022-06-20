@@ -1,3 +1,4 @@
+import { Question } from "data/quizData/quizData.types";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuiz } from "../../context/quizContext";
@@ -7,29 +8,29 @@ import {
   SET_ANSWER_LIST,
 } from "../../reducer/constant";
 
-export const QuizCard = ({ item }) => {
+export const QuizCard = ({ item } : {item: Question}) => { 
   const navigate = useNavigate();
   const { quizState, quizDispatch } = useQuiz();
-  const { questionNo, result, answerList } = quizState;
+  const { questionNo, result } = quizState;
 
   const [selectedAnswer, setSelectedAnswer] = useState("")
 
   const [timer, setTimer] = useState(30);
   // const [timerId, setTimerId] = useState("");
   // const timer1 = useRef(3);
-  const timer2 = useRef(null);
+  let timer2 = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
-    timer2.current = setInterval(() => {
+    timer2.current  = setInterval(() => {
       setTimer(timer - 1);
       // timer1.current--;
     }, 1000);
-    return () => clearInterval(timer2.current);
+    return () => clearInterval(timer2.current as NodeJS.Timeout);
   }, [timer]);
 
   useEffect(() => {
     if (timer <= 0) {
-      clearInterval(timer2.current);
+      clearInterval(timer2.current as NodeJS.Timeout);
     }
   });
 
@@ -57,7 +58,7 @@ export const QuizCard = ({ item }) => {
   //   setTimer(timer-1)
   // }, 1000))
 
-  const nextLinkHandler = (next) => {
+  const nextLinkHandler = (next: string) => {
     quizDispatch({ type: SET_ANSWER_LIST, payload: selectedAnswer });
     if (item.ans === selectedAnswer) {
       quizDispatch({ type: GET_RESULT, payload: result + 10 });
@@ -66,7 +67,7 @@ export const QuizCard = ({ item }) => {
     }
 
     setSelectedAnswer("")
-    clearTimeout(timer2.current)
+    clearTimeout(timer2.current as NodeJS.Timeout)
     if (next === "result") {
       navigate("/result");
     } else if (questionNo < 5) {
@@ -99,12 +100,12 @@ export const QuizCard = ({ item }) => {
       </div>
       <div className="quiz-question font-md black-color">{item.question}</div>
       <div className="quiz-option font-sm">
-        {item.options.map((option, index) => (
+        {item.options.map((option:string, index:number) => (
           <div
             className={selectedAnswer === option ? "option-unit active flex" : "option-unit flex"}
             key={index}
             onClick={() => setSelectedAnswer(option)}
-            disabled={true}
+            // disabled={true}
           >
             <span className="material-icons icon"> check </span>
             {option}
