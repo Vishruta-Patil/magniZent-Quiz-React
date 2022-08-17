@@ -1,8 +1,8 @@
-import { Question } from "data/quizData/quizData.types";
+import { Question, ResultType } from "data/quizData/quizData.types";
 import { useState } from "react";
 import { useQuiz } from "../../context/quizContext";
 
-export const ResultCard = ({ item } : any) => {
+export const ResultCard = ({ item } : {item: ResultType | any}) => {
   const { quizState } = useQuiz();
   const { answerList } = quizState;
 
@@ -17,6 +17,8 @@ export const ResultCard = ({ item } : any) => {
       return "wrong-option";
     }
   };
+
+  console.log(item)
 
   return (
     <div className="quiz-container">

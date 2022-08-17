@@ -30,7 +30,7 @@ describe("testing quiz", () => {
   });
 
   it("set the question number for quiz", () => {
-    const action: any = {
+    const action: QuizAction = {
       type: SET_QUESTION_NUMBER,
       payload: 2,
     };
@@ -48,7 +48,7 @@ describe("testing quiz", () => {
   });
 
   it("Reset the data", () => {
-    const action: any = {
+    const action: QuizAction = {
       type: RESET_DATA,
     };
 
@@ -65,7 +65,7 @@ describe("testing quiz", () => {
   });
 
   it("Reset category game", () => {
-    const action: any = {
+    const action: QuizAction = {
       type: RESET_CATEGORY_GAME,
     };
 
@@ -82,7 +82,7 @@ describe("testing quiz", () => {
   });
 
   it("get result of quiz", () => {
-    const action: any = {
+    const action: QuizAction = {
       type: GET_RESULT,
       payload: 10,
     };
@@ -100,15 +100,15 @@ describe("testing quiz", () => {
   });
 
   it("get the answer list given by user", () => {
-    const action: any = {
+    const action: QuizAction = {
       type: SET_ANSWER_LIST,
-      payload: 5000,
+      payload: '5000',
     };
 
     const expectedState = {
       questionNo: 1,
       result: 0,
-      answerList: [5000],
+      answerList: ["5000"],
       category: "technology",
     };
 

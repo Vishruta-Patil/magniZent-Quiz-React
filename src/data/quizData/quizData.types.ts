@@ -19,6 +19,16 @@ export interface QuizDataType {
     astronomy: Question[]
 }
 
+export type ResultType = {
+    ans: string,
+    id: number,
+    category: string,
+    question: string,
+    question_no: number,
+    link: Link,
+    options: string[]
+} 
+
 
 
 
