@@ -5,7 +5,7 @@ import { ResultCard } from "../../components/quiz/ResultCard";
 import { useQuiz } from "../../context/quizContext";
 import { quizData } from "../../data/quizData/quizData";
 import { RESET_CATEGORY_GAME } from "../../reducer/constant";
-import { Question, QuizDataType } from "data/quizData/quizData.types";
+import { Question, QuizDataType, ResultType } from "data/quizData/quizData.types";
 
 export const Result = () => {
   const { quizState, quizDispatch } = useQuiz();
@@ -43,7 +43,9 @@ export const Result = () => {
       </Link>
 
       {(quizData as any)[category].map((item: CategoryInterface, index: number) => (  //doubt
+      <div>
         <ResultCard item={item} />
+        </div>
       ))}
     </div>
   );

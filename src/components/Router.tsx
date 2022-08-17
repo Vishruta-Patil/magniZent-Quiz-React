@@ -1,5 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { JsxElement } from "typescript";
 import { LogIn } from "../pages/auth/login";
 import { SignIn } from "../pages/auth/signin";
 import Home from "../pages/home";
@@ -18,7 +19,7 @@ export const Router = () => {
 
 //   const [authStatus, setAuthStatus] = useState(useAuth())
 
-  const PrivateRoute = ({ children } : any) => {
+  const PrivateRoute = ({ children } : {children: React.ReactNode | any}) => {
     const auth = useAuth();
     return auth ? children : <Navigate to="/login" />;
   };
